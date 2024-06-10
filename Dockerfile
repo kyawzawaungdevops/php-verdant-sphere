@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 
 
 # Install Composer
-RUN composer install
+COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
 
 # Copy existing application directory contents
 COPY . /var/www
