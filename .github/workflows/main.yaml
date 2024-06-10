@@ -15,6 +15,16 @@ jobs:
   build:
     name: Build Laravel App
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+        env:
+            MYSQL_ALLOW_EMPTY_PASSWORD: false
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USERNAME: root
+            MYSQL_DATABASE: test
 
     steps:
       - name: Setup PHP
@@ -22,16 +32,9 @@ jobs:
         with:
           php-version: "8.2"
 
-      - name: Start MySQL container
-        run: |
-          docker run --name mysql -e MYSQL_DATABASE=test -e MYSQL_USER=root -e MYSQL_PASSWORD=password -d mysql:latest
-          docker ps
-          sleep 20
-
       - name: test mysql
         run: |
            docker ps
-
       - name: Checkout
         uses: actions/checkout@v4
 
