@@ -56,9 +56,9 @@ jobs:
         run: |
           php artisan test
 
-      - name: Build Docker image
+      - name: Migrate the Database
         run: |
-           docker ps
+          php artisan migrate
 
 
       
