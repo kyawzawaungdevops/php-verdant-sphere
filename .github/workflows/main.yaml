@@ -32,6 +32,10 @@ jobs:
           -e MYSQL_DATABASE=test \
           mysql:latest
 
+      - name: Setup MYSQL
+        run: |
+          sleep 20
+
 
       - name: Checkout
         uses: actions/checkout@v4
