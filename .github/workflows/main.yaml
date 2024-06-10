@@ -58,7 +58,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-           dockr build -t . verdant-sphere
+           docker build -t verdant-sphere .
+
 
       
    
