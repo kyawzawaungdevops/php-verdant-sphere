@@ -17,13 +17,9 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd
 
 # Install Composer
-COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
+RUN composer install
 
 # Copy existing application directory contents
 COPY . /var/www
