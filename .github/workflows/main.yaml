@@ -38,6 +38,11 @@ jobs:
         run: |
            docker ps
 
+      - name: wait mysql
+        run: |
+           sleep 30
+
+
 
       - name: Checkout
         uses: actions/checkout@v4
