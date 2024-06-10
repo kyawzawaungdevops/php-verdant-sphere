@@ -39,7 +39,12 @@ jobs:
            docker ps
 
       - name: Check MySQL Container Logs
-        run: docker logs mysql-container
+        run: |
+          docker logs mysql-container
+
+      - name: Check MySQL Container Logs
+        run: |
+            sleep 20
 
       - name: Checkout
         uses: actions/checkout@v4
