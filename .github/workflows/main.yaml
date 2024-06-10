@@ -16,21 +16,21 @@ jobs:
     name: Build Laravel App
     runs-on: ubuntu-latest
     services:
-      mysql:
-        image: mysql:latest
-        ports:
-          - 3306:3306
-        env:
-            MYSQL_ALLOW_EMPTY_PASSWORD: false
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_USERNAME: root
-            MYSQL_DATABASE: test
+
 
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
+
+      - name: Start MySQL container
+        run: |
+          docker run --name mysql -e MYSQL_DATABASE=test -e MYSQL_USER=root -e MYSQL_PASSWORD=password -d mysql:latest
+          until docker exec mysql-container mysqladmin ping --silent; do
+            echo 'Waiting for MySQL to be ready...'
+            sleep 1
+          done
 
       - name: test mysql
         run: |
