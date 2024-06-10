@@ -25,7 +25,7 @@ jobs:
       - name: Start MySQL container
         run: |
           docker run --name mysql -e MYSQL_DATABASE=test -e MYSQL_USER=root -e MYSQL_PASSWORD=password -d mysql:latest
-          until docker exec mysql-container mysqladmin ping --silent; do
+          until docker exec mysql mysqladmin ping --silent; do
             echo 'Waiting for MySQL to be ready...'
             sleep 1
           done
