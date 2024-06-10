@@ -32,9 +32,9 @@ jobs:
           -e MYSQL_DATABASE=test \
           mysql:latest
 
-      - name: Setup MYSQL
+      - name: wait MYSQL
         run: |
-          sleep 20
+          sleep 30
 
 
       - name: Checkout
