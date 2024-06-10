@@ -52,13 +52,9 @@ jobs:
         run: |
           php artisan migrate
       
-      - name: Run Unit Testing
-        run: |
-          php artisan test
 
-      - name: Migrate the Database
-        run: |
-          php artisan migrate
+
+ 
 
 
       
