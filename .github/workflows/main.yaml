@@ -56,5 +56,9 @@ jobs:
         run: |
           php artisan test
 
+      - name: Build Docker image
+        run: |
+           dockr build -t . verdant-sphere
+
       
    
