@@ -38,7 +38,6 @@ jobs:
       - name: Install dependencies
         run: |
           composer install
-
       - name: Create .env
         run: |
           cp .env.ci .env
@@ -51,16 +50,3 @@ jobs:
       - name: Migrate the Database
         run: |
           php artisan migrate
-
-      - name: Build Docker image
-        run: |
-          docker build -t verdant-sphere .
-
-      
-
-
- 
-
-
-      
-   
