@@ -33,9 +33,6 @@ jobs:
           -p 3306:3306 \
           mysql:latest
 
-      - name: wait MYSQL
-        run: |
-          sleep 30
 
       - name: test mysql
         run: |
