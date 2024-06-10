@@ -51,6 +51,11 @@ jobs:
       - name: Migrate the Database
         run: |
           php artisan migrate
+
+      - name: Build Docker image
+        run: |
+          docker build -t verdant-sphere .
+
       
 
 
